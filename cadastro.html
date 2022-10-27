@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>Cadastrar</title>
+        <style>
+            * {
+        box-sizing: border-box;
+    }
+    
+    body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        margin: 0;
+        width: 100vw;
+        height: 100vh;
+        font-family: Arial, Helvetica, sans-serif;
+        background-image: url(img/fundo.jpg);
+        align-items: center;
+        background-size: 100% 100%;
+        
+       
+    
+        }
+    
+    form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+        padding: 40px 20px 20px;  
+        background:  #f4e0ef;
+        border-radius: 30px;
+        box-shadow: 0px 0px 20px black;
+       
+    }
+    
+    h2 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 900;
+        color: black;
+    }
+    
+    input {
+        width: 95%;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid rgb(94, 94, 94);
+        margin-bottom: 15px;
+        margin-left: 5%;
+        padding-left: 20%;
+    }
+    
+    input:focus {
+        outline-color: #a2dee3;
+
+    }
+    
+    button{
+        width: 90%;
+        padding: 20px;
+        margin: 20px 0px 20px 0px;
+        cursor: pointer;
+        background-color: #d6dd90;
+        border-radius: 10%;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        transition: 0.5s ease;
+    }
+    
+    button:hover{
+        background-color:#a2dee3;
+        transition: 0.1s;
+        border: 1px solid black;
+        
+    }
+    
+    a {
+        text-decoration: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    a:hover {
+        color: #00c3ff;
+    }
+    
+    .link {
+        color: #00c3ff;
+        text-decoration: underline;
+    }
+    
+    .input-group {
+        width: 90%;
+    }
+    
+    .input-icon {
+        width: 60px;
+        position: absolute;
+    }
+    
+    input[type='checkbox'] {
+        display: inline-block;
+        height: 20px;
+        width: 5%;
+        vertical-align: middle;
+    }
+    
+    label {
+        display: inline-block;
+        width: 85%;
+        font-size: 13px;
+        margin-top: 15px;
+        cursor: pointer;
+        word-wrap: break-word;
+    }
+    
+   
+        </style>
+    </head>
+    <body>
+       
+        <form action="" method="post">
+            <h2>Cadastrar </h2>
+            
+
+            <div class="input-group">
+                <img class="input-icon" src="img/user.png">
+                <input type="text" placeholder="Nome Completo" name="nome" required>
+                <i><img src="img/sucesso.svg" alt=""></i>
+                <i><img src="img/erro.svg" alt=""></i>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/log.png">
+                <input type="text" placeholder="Insira um nome de usuário" name="nome" required>
+                <i><img src="img/sucesso.svg" alt=""></i>
+                <i><img src="img/erro.svg" alt=""></i>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/emaiil.png">
+                <input type="email" placeholder="Seu melhor email" name="email" required>
+                <i><img src="img/sucesso.svg" alt=""></i>
+                <i><img src="img/erro.svg" alt=""></i>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Senha mínimo 6 Dígitos" name="senha" required>
+                <i><img src="img/sucesso.svg" alt=""></i>
+                <i><img src="img/erro.svg" alt=""></i>
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Confirme sua senha" name="senha" required>
+                <i><img src="img/sucesso.svg" alt=""></i>
+                <i><img src="img/erro.svg" alt=""></i>
+            </div>
+
+
+            
+
+
+            <button type="submit"> Cadastrar </button>
+
+            
+
+           
+            
+        </form>
+    </body>
+</html>
