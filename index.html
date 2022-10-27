@@ -1,0 +1,184 @@
+<html>
+<head>
+    <title>Lista de Tarefas-J. Lucas e Thalyta</title>
+    <style>
+        body{
+    
+    background-image: url(img/fundo.jpg);
+    align-items: center;
+    background-size: 100% 100%;
+   
+    
+   
+}
+@keyframes titulo{
+    from {background-color: white; width:0px;}
+    to {background-color: #d6dd90; width:50%}      
+         }
+@keyframes caixa {
+            from {
+              transform: translateX(-100px);
+            }
+            to {
+              transform: translateX(0);
+            }
+          }
+
+#caixa {   
+    align-items: center;
+    max-width: 400px;
+    padding: 40px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #000000;
+    background-color:   #f4e0ef;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    animation: caixa 3s;
+    
+  
+}
+
+h1 {
+    font-family: Courier New;;
+    padding: 0px 15px 0px 15px;
+    font-size: 2rem;
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    background-color:#d6dd90;
+    color: rgb(0, 0, 0);
+    animation-name: titulo;
+    animation-duration: 3s;
+    width: 50%;
+    box-shadow: 0px 0px 20px #000000;
+    border-radius: 5%;
+}
+
+   
+ p  {
+     font-family:Geneva, Tahoma, sans-serif;
+     font-size: 15px;    
+     margin-bottom: 15px;
+     text-align: center;
+     
+     }
+    
+
+button{
+    
+    background-color: #d6dd90;
+    border-radius: 10%;
+    
+    }
+    
+
+
+input{
+    height: 5%; 
+    font-family: arial;
+    border-radius: 10%;
+}
+
+.input-icon {
+    width: 60px;
+    
+}
+
+
+
+
+button:hover{
+    background-color:#a2dee3;
+    transition: 0.1s;
+    border: 2px solid black;
+    
+}
+
+.itens{
+    display: flex;
+    justify-content: space-around;
+    
+}
+.okay {
+    width: 25px;
+    height: 25px;
+}
+
+    </style>
+
+    <script >
+          function adicionar()
+            {
+
+         var conteudo = document.getElementById('texto').value;
+             if(conteudo!="") {
+                var novoElemento = document.createTextNode(conteudo);
+                var divNova = document.createElement('div');
+                divNova.className="itens";
+                var botao = document.createElement('button');
+                var check = document.createElement('input');
+                check.setAttribute("type", "checkbox");
+                
+                var botaoEditar = document.createElement('button');
+                botaoEditar.innerHTML = "Editar";
+                botaoEditar.addEventListener("click",
+                function(){
+                    document.getElementById('texto').value = conteudo;
+                })
+                botao.innerHTML = "Remover";
+                botao.addEventListener("click",
+                function(){
+                    divNova.remove();
+                })
+
+                divNova.appendChild(check);
+                check.className="okay";}
+                check.addEventListener('change',function(){
+                    if(this.checked){
+                        divNova.style.textDecoration = "line-through";
+                    }else{
+                        divNova.style.textDecoration = "none";
+                    }
+                })
+
+                divNova.appendChild(novoElemento);
+                divNova.appendChild(botaoEditar);
+                divNova.appendChild(botao);
+                document.getElementById('tarefas').appendChild(divNova);
+                document.getElementById('texto').value = "";
+            }
+    </script>
+</head>
+<body>
+	<script src="js/myscript.js"></script>
+    <center>
+        
+        <hr>
+        <h1>
+            Lista de Tarefas 
+            <img class="input-icon" src="img/check.png">
+        </h1>
+         <hr>
+        
+        
+        
+    
+        <div id="caixa">
+            
+         
+            <img class="input-icon" src="img/logo.png">
+            <p>Insira sua Tarefa:</p>
+            <input id="texto" placeholder="Ex.: Lavar roupa">
+            <button onclick="adicionar();" >Adicionar</button>
+         
+        
+        
+        </div>
+
+        <div id="tarefas">      
+        </div>
+
+        
+    </center>
+</body>
+</html>
