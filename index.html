@@ -1,184 +1,183 @@
-<html>
-<head>
-    <title>Lista de Tarefas-J. Lucas e Thalyta</title>
-    <style>
-        body{
-    
-    background-image: url(img/fundo.jpg);
-    align-items: center;
-    background-size: 100% 100%;
-   
-    
-   
-}
-@keyframes titulo{
-    from {background-color: white; width:0px;}
-    to {background-color: #d6dd90; width:50%}      
-         }
-@keyframes caixa {
-            from {
-              transform: translateX(-100px);
-            }
-            to {
-              transform: translateX(0);
-            }
-          }
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+        <title>Cadastrar</title>
 
-#caixa {   
-    align-items: center;
-    max-width: 400px;
-    padding: 40px 20px;
-    border-radius: 30px;
-    box-shadow: 0px 0px 20px #000000;
-    background-color:   #f4e0ef;
-    margin-top: 3%;
-    margin-bottom: 3%;
-    animation: caixa 3s;
-    
-  
-}
-
-h1 {
-    font-family: Courier New;;
-    padding: 0px 15px 0px 15px;
-    font-size: 2rem;
-    text-align: center;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    background-color:#d6dd90;
-    color: rgb(0, 0, 0);
-    animation-name: titulo;
-    animation-duration: 3s;
-    width: 50%;
-    box-shadow: 0px 0px 20px #000000;
-    border-radius: 5%;
-}
-
-   
- p  {
-     font-family:Geneva, Tahoma, sans-serif;
-     font-size: 15px;    
-     margin-bottom: 15px;
-     text-align: center;
-     
-     }
-    
-
-button{
-    
-    background-color: #d6dd90;
-    border-radius: 10%;
-    
+        <style>
+    * {
+        box-sizing: border-box;
     }
     
-
-
-input{
-    height: 5%; 
-    font-family: arial;
-    border-radius: 10%;
-}
-
-.input-icon {
-    width: 60px;
+    body {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        background-image: url(img/fundoo.jpg);
+        background-size: 100% 100%;  
+        font-family: Arial, Helvetica, sans-serif;    
+       
     
-}
-
-
-
-
-button:hover{
-    background-color:#a2dee3;
-    transition: 0.1s;
-    border: 2px solid black;
+        }
     
-}
-
-.itens{
-    display: flex;
-    justify-content: space-around;
+    form {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        align-items: center;
+        max-width: 400px;
+        padding: 40px 20px 20px;  
+        background:  #cacbf6;
+        border-radius: 30px;
+        box-shadow: 0px 0px 20px black;
+        margin-top: 80px;
+        margin-bottom: 80px;
+       
+    }
     
-}
-.okay {
-    width: 25px;
-    height: 25px;
-}
-
-    </style>
-
-    <script >
-          function adicionar()
-            {
-
-         var conteudo = document.getElementById('texto').value;
-             if(conteudo!="") {
-                var novoElemento = document.createTextNode(conteudo);
-                var divNova = document.createElement('div');
-                divNova.className="itens";
-                var botao = document.createElement('button');
-                var check = document.createElement('input');
-                check.setAttribute("type", "checkbox");
-                
-                var botaoEditar = document.createElement('button');
-                botaoEditar.innerHTML = "Editar";
-                botaoEditar.addEventListener("click",
-                function(){
-                    document.getElementById('texto').value = conteudo;
-                })
-                botao.innerHTML = "Remover";
-                botao.addEventListener("click",
-                function(){
-                    divNova.remove();
-                })
-
-                divNova.appendChild(check);
-                check.className="okay";}
-                check.addEventListener('change',function(){
-                    if(this.checked){
-                        divNova.style.textDecoration = "line-through";
-                    }else{
-                        divNova.style.textDecoration = "none";
-                    }
-                })
-
-                divNova.appendChild(novoElemento);
-                divNova.appendChild(botaoEditar);
-                divNova.appendChild(botao);
-                document.getElementById('tarefas').appendChild(divNova);
-                document.getElementById('texto').value = "";
-            }
-    </script>
-</head>
-<body>
-	<script src="js/myscript.js"></script>
-    <center>
-        
-        <hr>
-        <h1>
-            Lista de Tarefas 
-            <img class="input-icon" src="img/check.png">
-        </h1>
-         <hr>
-        
-        
-        
+    h2 {
+        font-size: 2rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 900;
+        color: black;
+    }
     
-        <div id="caixa">
+    input {
+        width: 95%;
+        height: 60px;
+        border-radius: 5px;
+        border: 1px solid rgb(94, 94, 94);
+        margin-bottom: 15px;
+        margin-left: 5%;
+        padding-left: 20%;
+    }
+    
+    input:focus {
+        outline-color: #000000;
+        border: 5px;
+
+    }
+    
+    button{
+        width: 90%;
+        padding: 20px;
+        margin: 20px 0px 20px 0px;
+        cursor: pointer;
+        background-color: #ecabca;
+        border-radius: 10%;
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        border: none;
+        transition: 0.5s ease;
+    }
+    
+    button:hover{
+        background-color:#f9f3dd;
+        transition: 0.1s;
+        border: 1px solid black;
+        
+    }
+    
+    a {
+        text-decoration: none;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        color: white;
+    }
+    
+    a:hover {
+        color: #00c3ff;
+    }
+    
+    .link {
+        color: #00c3ff;
+        text-decoration: underline;
+    }
+    
+    .input-group {
+        width: 90%;
+    }
+    
+    .input-icon {
+        width: 60px;
+        position: absolute;
+    }
+    
+    input[type='checkbox'] {
+        display: inline-block;
+        height: 20px;
+        width: 5%;
+        vertical-align: middle;
+    }
+    
+    label {
+        display: inline-block;
+        width: 85%;
+        font-size: 13px;
+        margin-top: 15px;
+        cursor: pointer;
+        word-wrap: break-word;
+    }
+
+   </style>
+  
+    </head>
+    <body>
+       
+       <form id="form">
+            <h2>Cadastro </h2>
             
-         
-            <img class="input-icon" src="img/logo.png">
-            <p>Insira sua Tarefa:</p>
-            <input id="texto" placeholder="Ex.: Lavar roupa">
-            <button onclick="adicionar();" >Adicionar</button>
-         
+            <div class="input-group ">
+                <img class="input-icon" src="img/user.png">
+                <input class="span-required" type="text" placeholder="Nome Completo" class="inputs required">
         
-        
-        </div>
+            </div>
 
-        <div id="tarefas">      
-        </div>
+            <div class="input-group ">
+                <img class="input-icon" src="img/log.png">
+                <input type="text" placeholder="Insira um nome de usuário" name="nome" required>
+               
+            </div>
 
-        
-    </center>
-</body>
+            <div class="input-group">
+                <img class="input-icon" src="img/emaiil.png">
+                <input type="email" placeholder="Seu melhor email" name="email" required>
+              
+
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Senha mínimo 6 Dígitos" name="senha" required>
+               
+            </div>
+
+            <div class="input-group">
+                <img class="input-icon" src="img/lock.png">
+                <input type="password" placeholder="Confirme sua senha" name="senha" required>
+          
+            </div>
+
+
+            
+
+
+            <button type="submit"> Cadastrar </button>
+
+             
+            
+        </form>
+   
+
+    
+        <script>
+            
+        </script>
+    </body>
 </html>
