@@ -186,7 +186,7 @@
 
             <div class="input-group">
                 <img class="input-icon" src="img/lock.png">
-                <input type="password" placeholder="Confirme sua senha" class="inputs required">
+                <input type="password" placeholder="Confirme sua senha" class="inputs required" oninput=" compareSenhas()">
                 <img class="sucesso" src="./img/success-icon.svg" >
                 <img class="erro" src="./img/error-icon.svg" >
                 <span class="span-required">As senhas não são compatives</span>
@@ -270,10 +270,17 @@
             }
 
             function compareSenhas(){
-                if(campos[3].value == campos[4]){
+                if(campos[3].value !== campos[4].value){
+
+                    setError(4);
+                }
+                else{
+                    removeError(4);  
+                 
+                }
 
                         }
-                        }
+                        
 
 
             
@@ -285,13 +292,3 @@
             </script>
     </body>
 </html>
-
-
-
-
-
-
-
-
-
-
