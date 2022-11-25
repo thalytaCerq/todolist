@@ -14,7 +14,6 @@
     
     body {
         display: flex;
-        flex-flow: row wrap;
         justify-content: center;
         align-items: center;
         background-image: url(img/fundoo.jpg);
@@ -64,17 +63,19 @@
     }
     
     button{
-        width: 90%;
+        width: 30%;
+        
         padding: 20px;
         margin: 20px 0px 20px 0px;
         cursor: pointer;
         background-color: #ecabca;
         border-radius: 10%;
         color: black;
-        font-size: 18px;
+        font-size: 12px;
         font-weight: bold;
         border: none;
         transition: 0.5s ease;
+        text-align: center ;
     }
     
     button:hover{
@@ -82,6 +83,10 @@
         transition: 0.1s;
         border: 1px solid black;
         
+    }
+    #addc{
+        margin-left: 35%;
+     
     }
     
     a {
@@ -141,13 +146,64 @@
         position: absolute;
     
     }
+    #caixa {   
+    align-items: center;
+    display: none;
+    max-width: 400px;
+    padding: 40px 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #000000;
+    background-color: #cacbf6 ; 
+    margin-top: 3%;
+    margin-bottom: 3%;
+    animation: caixa 3s;
+    }
+    @keyframes caixa {
+            from {
+              transform: translateX(-100px);
+            }
+            to {
+              transform: translateX(0);
+            }
+          }
 
+   
+    
+    p  {
+     font-family:Geneva, Tahoma, sans-serif;
+     font-size: 15px;    
+     margin-bottom: 15px;
+     text-align: center;
+     
+     }
+    #caixa input{
+    height: 10%; 
+    font-family: arial;
+    border-radius: 10%;
+}
+.input-icon2 {
+    width: 60px;
+    margin-left: 42%;
+    margin-right: 50%;
+    
+    
+}
+.itens{
+    display: block;
+    justify-content: space-around;
+    
+}
+.okay {
+    width: 25px;
+    height: 25px;
+}
    </style>
   
     </head>
     <body>
-       
-       <form id="form">
+
+        
+       <form id="divinha">
             <h2>Cadastrar </h2>
             
             <div class="input-group ">
@@ -191,25 +247,40 @@
                 <img class="erro" src="./img/error-icon.svg" >
                 <span class="span-required">As senhas não são compatives</span>
             </div>
+            <button type="button" onclick="removeDiv()">Cadastrar</button>
 
-
-            
-
-
-           <button type="submit"> Cadastrar </button>
              
             
         </form>
-   
 
-    
-        <script>
+        <div id="caixa">
+            
+         
+            <img class="input-icon2" src="img/logo.png">
+            <br>
+            <p>Insira sua Tarefa:</p>
+            <input id="texto" placeholder="Ex.: Lavar roupa">
+            <button id="addc" onclick="adicionar();" >Adicionar</button>
+         
+            <div id="tarefas">      
+            </div>
+        
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        
+
+      <script>
             const form =document.getElementById("form");
             const campos = document.querySelectorAll(".required");
             const span = document.querySelectorAll(".span-required");
             const invalido = document.querySelectorAll(".erro");
             const valido = document.querySelectorAll(".sucesso");
             const emailRegex = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/;
+          
 
 
             function setError(index){
@@ -233,38 +304,45 @@
                 if(campos[0].value.length < 8){
                     
                     setError(0)
+                    
                 }
                 else{
                     removeError(0)
+                   
                 }
             }
             function userValidate(){
                 if(campos[1].value.length < 5){
                     
                     setError(1)
+                    
                 }
                 else{
                     removeError(1)
+                   
                 }
             }
 
             function emailValidate(){
                 if(!emailRegex.test(campos[2].value)){
                     setError(2)
+                   
                 }
                 else{
                     removeError(2)
+                   
                 }
             }
 
             function senhaValidate(){
                 if(campos[3].value.length < 8){
                     
+                    
                     setError(3);
                 }
                 else{
                     removeError(3);
-                 
+                  
                 }
             }
 
@@ -272,22 +350,60 @@
                 if(campos[3].value !== campos[4].value){
 
                     setError(4);
+                    
                 }
                 else{
-                    removeError(4);  
+                    removeError(4); 
+                   
                  
                 }
 
                         }
-                        
 
+            function removeDiv(){
+                 document.getElementById("divinha").style.display = "none";
+                 document.getElementById("caixa").style.display = "block";
+        }
+        function adicionar()
+            {
 
-            
+         var conteudo = document.getElementById('texto').value;
+             if(conteudo!="") {
+                var novoElemento = document.createTextNode(conteudo);
+                var divNova = document.createElement('div');
+                divNova.className="itens";
+                var botao = document.createElement('button');
+                var check = document.createElement('input');
+                check.setAttribute("type", "checkbox");
+                
+                var botaoEditar = document.createElement('button');
+                botaoEditar.innerHTML = "Editar";
+                botaoEditar.addEventListener("click",
+                function(){
+                    document.getElementById('texto').value = conteudo;
+                })
+                botao.innerHTML = "Remover";
+                botao.addEventListener("click",
+                function(){
+                    divNova.remove();
+                })
 
+                divNova.appendChild(check);
+                check.className="okay";}
+                check.addEventListener('change',function(){
+                    if(this.checked){
+                        divNova.style.textDecoration = "line-through";
+                    }else{
+                        divNova.style.textDecoration = "none";
+                    }
+                })
 
-
-     
-           
+                divNova.appendChild(novoElemento);
+                divNova.appendChild(botaoEditar);
+                divNova.appendChild(botao);
+                document.getElementById('tarefas').appendChild(divNova);
+                document.getElementById('texto').value = "";
+            }
             </script>
     </body>
 </html>
